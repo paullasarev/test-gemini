@@ -1,0 +1,15 @@
+{
+  "name": "project-name",
+  "version": "1.0.0",
+  "description": "project description",
+  "dependencies": {
+    "jquery": "~1.11.3",
+    "react": "~0.14.0",
+    "underscore": "~1.8.3",
+    "bootstrap": "~3.3.5",
+    "classnames": "~2.1.5",
+    "es5-shim": "~4.1.15",
+    "console-polyfill": "~0.2.2",
+    "html5shiv": "~3.7.3"
+  }
+}

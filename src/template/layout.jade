@@ -1,0 +1,26 @@
+doctype html
+html
+  block vars
+  head
+    block head
+      title= pageTitle ? pageTitle : "page"
+      meta(charset="UTF-8")
+      meta(http-equiv="X-UA-Compatible", content="IE=edge")
+      meta(http-equiv="Content-Type", content="text/html; charset=utf8")
+      meta(name="viewport", content="width=device-width, initial-scale=1")
+      link(href='style/app.css' rel='stylesheet' type='text/css')
+      link(rel="shortcut icon" href="style/img/favicon.ico")
+
+      <!--[if lt IE 10]>
+      <link href="style/app-ie.css" rel="stylesheet" type="text/css"/>
+      <![endif]-->
+
+      script(src="js/polyfills.js")
+
+      script(src="js/libs.js")
+      script(src="js/components.js")
+      script(src="js/services.js")
+
+  body
+    block body
+    block popup

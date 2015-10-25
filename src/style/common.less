@@ -1,0 +1,157 @@
+html {
+  margin: 0px;
+  height: 100%;
+}
+
+body {
+  display: block;
+  margin: 0px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+input, textarea, select {
+  box-sizing: border-box;
+}
+
+.common-link() {
+  color: @text-color-link;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+    color: @text-color-link--hover;
+  }
+}
+
+a {
+  .common-link();
+}
+
+.common-button() {
+  box-sizing: border-box;
+  display: inline-block;
+  height: @input-line-height;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  font-family: @text-font-face;
+  font-size: @text-size-regular;
+
+  border-radius: 4px;
+
+  border: @input-text-border;
+  background-color: @background-color-button;
+
+  &:hover {
+    border-color: @border-color-hover;
+  }
+}
+
+.common-input() {
+  display: inline-block;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  border-radius: 4px;
+
+  border: @input-text-border;
+  outline: none;
+  height: @input-line-height;
+  line-height: @input-line-height;
+
+  font-family: @text-font-family;
+  font-size: @text-size-regular;
+
+  &:hover {
+    border-color: @border-color-hover;
+  }
+}
+
+.common-image-icon(@img) {
+  width: image-width(@img);
+  height: image-height(@img);
+  background-size: image-size(@img);
+  background-image: url(@img);
+}
+
+.common-image-icon-scale(@img, @scale) {
+  width: (image-width(@img)/@scale);
+  height: (image-height(@img)/@scale);
+  background-size: (image-width(@img)/@scale) (image-height(@img)/@scale);
+  background-image: url(@img);
+}
+
+.common-clearfix {
+  &:after {
+    content: " "; /* Older browser do not support empty content */
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+  }
+}
+
+.common-scrollbar (@color: rgba(0, 0, 0, 0.2), @width: 7px, @height: 9px, @radius: 4px) {
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: @width;
+    height: @height;
+  }
+
+  &::-webkit-scrollbar-button:start:decrement,
+  &::-webkit-scrollbar-button:end:increment {
+    display: block;
+    height: 0;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    border-radius: 0;
+    border-bottom-right-radius: @radius;
+    border-bottom-left-radius: @radius;
+  }
+
+  &::-webkit-scrollbar-thumb:vertical {
+    height: 50px;
+    background-color: @color;
+    border-radius: @radius;
+  }
+
+  &::-webkit-scrollbar-thumb:horizontal {
+    width: 50px;
+    background-color: @color;
+    border-radius: @radius;
+  }
+}
+
+.media-retina(@rules) {
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (min-resolution: 192dpi) { @rules(); }
+}
+
+.media-mobile(@rules) {
+    @media only screen and (max-width: 767px) { @rules(); }
+}
+
+.media-phone(@rules) {
+    @media only screen and (max-width: 540px)  { @rules(); }
+}
+
+.media-phone-narrow(@rules) {
+    @media only screen and (max-width: 400px) { @rules(); }
+}
+
+.media-iphone(@rules) {
+  @media only screen
+    and (min-device-width : 375px)
+    and (max-device-width : 667px)
+    and (orientation : landscape)
+    { @rules(); }
+}
+
+.media-tablet(@rules) {
+    @media only screen and (max-width: 767px) and (min-width: 541px)  { @rules(); }
+}

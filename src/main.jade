@@ -1,0 +1,16 @@
+block vars
+  -var pageTitle = "Wiki engine"
+
+extends template/layout
+
+block append head
+  script.
+      $(function(){
+        ReactDOM.render(React.createElement(WikiPage, {
+
+      }), $('.page-container')[0]);
+      });
+
+block body
+  .page-container
+
