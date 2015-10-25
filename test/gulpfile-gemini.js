@@ -17,7 +17,8 @@ var testConf = {
   
   webserver: null,
   selenium: null,
-  wwwroot: 'test/gemini/wwwroot',
+  wwwrootServer: 'test/gemini/wwwroot',
+  wwwroot: 'test/gemini/wwwroot/test',
   jade: 'test/gemini/src/**/*.jade',
   paths: [
     'test/gemini/test'
@@ -72,6 +73,7 @@ gulp.task('gemini', function (done) {
   runSequence(
     'test-clean',
     'test-html',
+    // 'build:dev',
     'testserver-start',
     'selenium-start',
     isGather ? 'test-gather' : 'test-run',
@@ -139,7 +141,7 @@ gulp.task('selenium-stop', function(done) {
 });
 
 gulp.task('testserver-start', function() {
-  testConf.webserver = gulp.src(testConf.wwwroot)
+  testConf.webserver = gulp.src([conf.dev.dir, testConf.wwwrootServer])
     .pipe(webserver({
       port: testConf.port,
       livereload: false,

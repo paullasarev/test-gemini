@@ -170,7 +170,7 @@ gulp.task('clean:packages', function () {
 
 
 gulp.task('webserver:dev', function() {
-  var webserver = gulp.src([conf.dev.dir])
+  return gulp.src([conf.dev.dir])
     .pipe(webserver({
       port: 3000,
       livereload: true,
@@ -182,8 +182,6 @@ gulp.task('webserver:dev', function() {
       },
       open: "http://localhost:3000/"
     }));
-
-  return webserver;
 });
 
 gulp.task('webserver:dist', function() {

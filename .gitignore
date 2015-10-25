@@ -7,7 +7,7 @@ test/galen/reports
 test/galen/dumps
 
 test/gemini-report/*
-test/gemini/wwwroot/*
+test/gemini/wwwroot/test/*
 
 .sass-cache
 .tmp
